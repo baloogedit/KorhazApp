@@ -56,6 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
                             user.put("name", name);
                             user.put("cnp", cnp);
                             user.put("email", email);
+                            user.put("password", password);
                             user.put("role", "patient"); // Automatikusan beteg
 
                             db.collection("Users").document(userId).set(user)
