@@ -1,24 +1,68 @@
 package com.edite.korhazapp;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
+    // Firebase példányok
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+
+        // Mezők és gomb összekötése
+        EditText etName = findViewById(R.id.etName);
+        EditText etCNP = findViewById(R.id.etCNP);
+        EditText etEmail = findViewById(R.id.etRegisterEmail);
+        EditText etPassword = findViewById(R.id.etRegisterPassword);
+        Button btnRegister = findViewById(R.id.btnRegister);
+
+        btnRegister.setOnClickListener(v -> {
+            String name = etName.getText().toString();
+            String cnp = etCNP.getText().toString();
+            String email = etEmail.getText().toString();
+            String password = etPassword.getText().toString();
+
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Töltsd ki az adatokat!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // 1. Felhasználó létrehozása a Firebase Auth-ban
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            String userId = mAuth.getCurrentUser().getUid();
+
+                            // 2. Extra adatok mentése a Firestore-ba (szerepkör: beteg)
+                            Map<String, Object> user = new HashMap<>();
+                            user.put("name", name);
+                            user.put("cnp", cnp);
+                            user.put("email", email);
+                            user.put("role", "patient"); // Automatikusan beteg
+
+                            db.collection("Users").document(userId).set(user)
+                                    .addOnSuccessListener(aVoid -> {
+                                        Toast.makeText(this, "Sikeres regisztráció!", Toast.LENGTH_SHORT).show();
+                                        finish(); // Vissza a loginra
+                                    });
+                        } else {
+                            Toast.makeText(this, "Hiba: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
         });
     }
 }
