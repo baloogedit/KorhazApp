@@ -1,8 +1,11 @@
 package com.edite.korhazapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
         EditText etEmail = findViewById(R.id.etRegisterEmail);
         EditText etPassword = findViewById(R.id.etRegisterPassword);
         Button btnRegister = findViewById(R.id.btnRegister);
+        TextView tvBackToLogin = findViewById(R.id.tvBackToLogin);
 
         btnRegister.setOnClickListener(v -> {
             String name = etName.getText().toString();
@@ -63,6 +67,11 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(this, "Hiba: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
                     });
+
+        });
+
+        tvBackToLogin.setOnClickListener(v -> {
+            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
         });
     }
 }
