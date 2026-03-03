@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Not Logged In View -->
+        <TextView
+            android:id="@+id/tvNotLoggedIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/not_logged_in_msg"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_marginTop="50dp"
+            android:visibility="gone" />
+
+        <!-- Profile Content -->
+        <LinearLayout
+            android:id="@+id/llProfileContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Switch Mode Button (for Doctors) -->
+            <Button
+                android:id="@+id/btnSwitchMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/switch_to_patient"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvProfileTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/patient_page_title"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_data_title"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvProfileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_name"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvProfileCNP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_cnp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvProfileEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_email"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvProfileSection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_section"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone" />
+
+            <!-- Doctor Specific: Medical Records Link -->
+            <TextView
+                android:id="@+id/tvMedicalRecordsLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/medical_records_title"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:background="#EEEEEE"
+                android:layout_marginBottom="16dp"
+                android:drawableEnd="@android:drawable/ic_media_play"
+                android:visibility="gone" />
+
+            <!-- Patient Specific: Upcoming Appointments -->
+            <LinearLayout
+                android:id="@+id/llUpcomingAppointments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/upcoming_appointments_title"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    android:background="@android:drawable/editbox_background">
+
+                    <TextView
+                        android:id="@+id/tvAppointmentInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nincs közeledő időpont." />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvPastAppointmentsLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/past_appointments_title"
+                    android:textSize="18sp"
+                    android:padding="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="#EEEEEE"
+                    android:drawableEnd="@android:drawable/ic_media_play" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCCCCC"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Common Bottom Options -->
+            <TextView
+                android:id="@+id/tvChangePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/change_password"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvDeleteProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delete_profile"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logout"
+                android:textColor="@android:color/holo_red_dark"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
