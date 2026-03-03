@@ -1,3 +1,47 @@
 <resources>
     <string name="app_name">KorhazApp</string>
+    <string name="login_header">Bejelentkezés</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Jelszó</string>
+    <string name="remember_me">maradjak bejelentkezve</string>
+    <string name="login_button">Bejelentkezés</string>
+    <string name="go_to_register">Nincs fiókom. Regisztrálok.</string>
+
+    <string name="register_header">Regisztráció</string>
+    <string name="name_hint">Név</string>
+    <string name="cnp_hint">CNP</string>
+    <string name="register_button">Fiók létrehozása</string>
+    <string name="back_to_login">Már van fiókom. Bejelentkezek.</string>
+
+    <string name="error_empty_fields">Minden mezőt tölts ki!</string>
+    <string name="error_prefix">Hiba: </string>
+    <string name="success_registration">Sikeres regisztráció!</string>
+
+    <string name="nav_home">Főoldal</string>
+    <string name="nav_prog">Progr.</string>
+    <string name="nav_profile">Profil</string>
+
+    <string name="hospital_name">Kórház neve</string>
+    <string name="section_label">Szekció</string>
+    <string name="description_label">leírás:</string>
+    <string name="address_label">cím:</string>
+    <string name="program_label">program:</string>
+    <string name="doctors_label">orvosok:</string>
+
+    <string name="switch_to_patient">Váltás betegre</string>
+    <string name="switch_to_doctor">Váltás orvosra</string>
+    <string name="patient_page_title">Páciens oldala</string>
+    <string name="doctor_page_title">Orvosi oldal</string>
+    <string name="profile_data_title">Adatok:</string>
+    <string name="profile_name">Név:</string>
+    <string name="profile_cnp">CNP:</string>
+    <string name="profile_email">Email:</string>
+    <string name="profile_section">Szekció:</string>
+    <string name="medical_records_title">Kórlapok</string>
+    <string name="upcoming_appointments_title">Közeledő programalások:</string>
+    <string name="past_appointments_title">Múltbeli programalások</string>
+    <string name="change_password">jelszó vált.</string>
+    <string name="delete_profile">profil törlése</string>
+    <string name="logout">kijelentkezés</string>
+    <string name="not_logged_in_msg">Kérjük jelentkezzen be az adatok és prog. megtekintése érdekében.</string>
 </resources>
