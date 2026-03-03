@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tvRecordDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2023.10.27"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvRecordHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dr. Kovács István - Kardiológia"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/tvRecordContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Diagnózis: Enyhe szívritmuszavar..."
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:textColor="#555555" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
